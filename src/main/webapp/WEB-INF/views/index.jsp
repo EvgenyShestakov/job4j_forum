@@ -40,6 +40,7 @@
         <div>
             Login as : ${user.username}
         </div>
+    </div>
     <div class="row">
         <table class="table">
             <thead>

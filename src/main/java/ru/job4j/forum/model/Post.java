@@ -1,11 +1,20 @@
 package ru.job4j.forum.model;
 
+import javax.persistence.*;
 import java.util.*;
 
+@Entity
+@Table(name = "posts")
 public class Post {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
-    private List<String> messages = new ArrayList<>();
+
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "post")
+    private List<Message> messages = new ArrayList<>();
+
     private Date created = new Date(System.currentTimeMillis());
 
     public static Post of(int id, String name) {
@@ -31,11 +40,11 @@ public class Post {
         this.name = name;
     }
 
-    public List<String> getMessages() {
+    public List<Message> getMessages() {
         return messages;
     }
 
-    public void setMessages(List<String> messages) {
+    public void setMessages(List<Message> messages) {
         this.messages = messages;
     }
 
@@ -47,7 +56,7 @@ public class Post {
         this.created = created;
     }
 
-    public void addMessage(String message) {
+    public void addMessage(Message message) {
     messages.add(message);
     }
 

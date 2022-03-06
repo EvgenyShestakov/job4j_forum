@@ -51,7 +51,7 @@
                 <td>
                     <ul>
                         <c:forEach items="${post.messages}" var="message">
-                            <li>${message}</li>
+                            <li>${message.message}</li>
                         </c:forEach>
                     </ul>
                 </td>
@@ -62,7 +62,7 @@
             <table>
                 <tr>
                     <td>Сообщение:</td>
-                    <td><input type='text' name='name'></td>
+                    <td><input type='text' name='message'></td>
                 </tr>
                 <tr>
                     <td colspan='2'><input name="submit" type="submit" value="Сохранить" /></td>

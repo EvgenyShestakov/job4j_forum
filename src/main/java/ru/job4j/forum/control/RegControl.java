@@ -1,5 +1,6 @@
 package ru.job4j.forum.control;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,7 @@ import ru.job4j.forum.service.PostService;
 public class RegControl {
     private final PostService service;
 
-    public RegControl(PostService service) {
+    public RegControl(@Qualifier("crudPostService")PostService service) {
         this.service = service;
     }
 
