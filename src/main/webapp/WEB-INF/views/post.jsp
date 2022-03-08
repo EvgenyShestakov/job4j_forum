@@ -37,6 +37,8 @@
             <tr>
                 <td><c:out value="${post.name}"/></td>
                 <td><c:out value="${post.created}"/></td>
+                <td>
+                    Login as : ${user.username}</td>
             </tr>
             </tbody>
         </table>

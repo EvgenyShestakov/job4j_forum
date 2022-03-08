@@ -1,7 +1,10 @@
 package ru.job4j.forum.service;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import ru.job4j.forum.model.Authority;
 import ru.job4j.forum.model.Post;
+import ru.job4j.forum.model.User;
 import ru.job4j.forum.repository.PostRepository;
 import java.util.Collection;
 
@@ -26,5 +29,25 @@ public class PostServiceImpl implements PostService {
     @Override
     public void savePost(Post post) {
     repository.savePost(post);
+    }
+
+    @Override
+    public void saveUser(User user) {
+
+    }
+
+    @Override
+    public Authority findByAuthority(String authority) {
+        return null;
+    }
+
+    @Override
+    public User findUserByName(String name) {
+        return null;
+    }
+
+    @Override
+    public PasswordEncoder getEncoder() {
+        return null;
     }
 }

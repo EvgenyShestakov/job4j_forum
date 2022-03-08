@@ -26,6 +26,9 @@
     </div>
     <div class="row">
         <a class="nav-link" href='<c:url value="/index"/>'>Главная</a>
+        <div>
+            Login as : ${user.username}
+        </div>
         <div class="card" style="width: 100%">
             <div class="card-body">
                 <form action="<c:url value='/create?id=${param.id}'/>" method="post">

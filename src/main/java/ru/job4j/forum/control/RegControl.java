@@ -19,7 +19,17 @@ public class RegControl {
 
     @PostMapping("/reg")
     public String regSave(@ModelAttribute User user, Model model) {
-       return "/login";
+        if (service.findUserByName(user.getUsername()) == null) {
+            user.setEnabled(true);
+            user.setPassword(service.getEncoder().encode(user.getPassword()));
+            user.setAuthority(service.findByAuthority("ROLE_USER"));
+            service.saveUser(user);
+            model.addAttribute("errorMessage", "User registered !!");
+            return "/login";
+        } else {
+            model.addAttribute("errorMessage", "A user with the same name already exists !!");
+            return "/reg";
+        }
     }
 
     @GetMapping("/reg")
