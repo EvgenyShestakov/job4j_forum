@@ -25,15 +25,15 @@ public class RegControl {
             user.setAuthority(service.findByAuthority("ROLE_USER"));
             service.saveUser(user);
             model.addAttribute("errorMessage", "User registered !!");
-            return "/login";
+            return "login";
         } else {
             model.addAttribute("errorMessage", "A user with the same name already exists !!");
-            return "/reg";
+            return "reg";
         }
     }
 
     @GetMapping("/reg")
     public String regPage() {
-        return "/reg";
+        return "reg";
     }
 }

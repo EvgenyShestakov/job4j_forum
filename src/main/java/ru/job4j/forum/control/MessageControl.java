@@ -19,7 +19,7 @@ public class MessageControl {
         this.service = service;
     }
 
-    @GetMapping({"/post"})
+    @GetMapping("/post")
     public String message(@RequestParam("id") int id, Model model) {
         model.addAttribute("user", SecurityContextHolder.getContext().
                 getAuthentication().getPrincipal());
@@ -36,6 +36,6 @@ public class MessageControl {
         post.addMessage(new Message(message, post));
         service.savePost(post);
         model.addAttribute("post", post);
-        return "post";
+        return String.format("redirect:/post?id=%d", id);
     }
 }

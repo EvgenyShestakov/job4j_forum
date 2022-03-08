@@ -18,14 +18,14 @@ public class PostControl {
         this.service = service;
     }
 
-    @GetMapping({"/create"})
+    @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("user", SecurityContextHolder.getContext().
                 getAuthentication().getPrincipal());
         return "create";
     }
 
-    @GetMapping({"/edit"})
+    @GetMapping("/edit")
     public String edit(Model model) {
         model.addAttribute("user", SecurityContextHolder.getContext().
                 getAuthentication().getPrincipal());
